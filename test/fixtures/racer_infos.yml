@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: 
+  last_name: 
+  gender: 
+  birth_year: 
+  residence: 
+
+two:
+  firstname: 
+  last_name: 
+  gender: 
+  birth_year: 
+  residence: 
