@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  b: 
+  secs: 
+  o: 
+  gerder: 
+  group: 
+
+two:
+  b: 
+  secs: 
+  o: 
+  gerder: 
+  group: 

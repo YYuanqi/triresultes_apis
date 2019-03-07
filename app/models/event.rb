@@ -11,6 +11,7 @@ class Event
   validates :name, presence: true
   
   
+  
   def meters
     units = self.units
     distance = self.distance
