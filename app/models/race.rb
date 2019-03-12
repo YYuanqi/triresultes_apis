@@ -5,6 +5,7 @@ class Race
   field :n, as: :name, type: String
   field :date, as: :date, type: Date
   field :loc, as: :location, type: Address
+  field :next_bib, as: :next_bib, type: Integer, default: ->{ 0 if new_record? }
   
   delegate :city, :city=, to: :location
   delegate :state, :state=, to: :state
@@ -54,5 +55,39 @@ class Race
       object.send("#{action}=", name)
       self.location=object
     end
+  end
+  
+  def next_bib
+    inc(next_bib: 1)
+    self[:next_bib]
+  end
+  
+  def get_group racer
+    if racer && racer.birth_year && racer.gender
+      quotient=(date.year-racer.birth_year)/10
+      min_age=quotient*10
+      max_age=((quotient+1)*10)-1
+      gender=racer.gender
+      name=min_age >= 60 ? "masters #{gender}" : "#{min_age} to #{max_age} (#{gender})"
+      Placing.demongoize(:name=>name)
+    end
+  end
+  
+  def create_entrant racer
+    entrant = Entrant.new
+    entrant.race = self.attributes.symbolize_keys.slice(:_id, :n, :date)
+    entrant.racer = racer.info.attributes
+    entrant.group = get_group(racer)
+    self.events.each { |event| entrant.send("#{event.name}=", event) }
+    if entrant.validate
+      entrant.bib = next_bib
+      entrant.save
+    end
+    entrant
+  end
+  
+  def self.upcoming_available_to racer
+    upcoming_race_ids=racer.races.upcoming.pluck(:race).map {|r| r[:_id]}
+    Race.all.upcoming.not_in(:id =>[upcoming_race_ids])
   end
 end
