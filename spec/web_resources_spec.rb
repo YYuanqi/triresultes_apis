@@ -185,7 +185,7 @@ feature "Module #3 Web Race/Racer Resource Access", :type => :routing do
           expect(page).to have_content("Date: #{r.date}")
           expect(page).to have_content("City: #{r.city}")
           expect(page).to have_content("State: #{r.state}")
-          expect(page).to have_content("Swim distance: #{r.swim_distance}")          
+          expect(page).to have_content("Swim distance: #{r.swim_distance}")
           expect(page).to have_content("Swim units: #{r.swim_units}")
           expect(page).to have_content("Bike distance: #{r.bike_distance}")          
           expect(page).to have_content("Bike units: #{r.bike_units}")          
