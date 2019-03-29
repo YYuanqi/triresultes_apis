@@ -42,8 +42,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bson (4.4.2)
     builder (3.2.3)
-    byebug (11.0.0)
-    capybara (3.14.0)
+    byebug (11.0.1)
+    capybara (3.15.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -58,7 +58,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     crass (1.0.4)
     debug_inspector (0.0.3)
     diff-lcs (1.3)
@@ -67,6 +67,9 @@ GEM
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    httparty (0.16.4)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.8.0)
@@ -83,22 +86,26 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    mongo (2.7.1)
+    mongo (2.8.0)
       bson (>= 4.4.2, < 5.0.0)
-    mongoid (5.4.0)
+    mongoid (5.0.2)
       activemodel (~> 4.0)
-      mongo (>= 2.5.1, < 3.0.0)
-      origin (~> 2.3)
+      mongo (~> 2.1)
+      origin (~> 2.1)
       tzinfo (>= 0.3.37)
     mongoid-rspec (3.0.0)
       mongoid (~> 5.0)
       rake
       rspec (~> 3.3)
     multi_json (1.13.1)
-    nokogiri (1.10.1)
+    multi_xml (0.6.0)
+    nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     origin (2.3.1)
     public_suffix (3.0.3)
@@ -136,6 +143,9 @@ GEM
     rdoc (4.3.0)
     ref (2.0.0)
     regexp_parser (1.3.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -209,11 +219,13 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
-  mongoid
+  mongoid (~> 5.0.0)
   mongoid-rspec (= 3.0.0)
   rails (= 4.2.8)
+  responders (~> 2.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -226,4 +238,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.2
