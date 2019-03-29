@@ -1,10 +1,10 @@
 module Api
 	class RacesController < ApplicationController
 		protect_from_forgery with: :null_session
-		
+
 		def index
 			if !request.accept || request.accept == "*/*"
-				render plain: "/api/races"
+				render plain: "/api/races, offset=[#{params[:offset]}], limit=[#{params[:limit]}]"
 			end
 		end
 
@@ -27,7 +27,7 @@ module Api
 		end
 		def create
 			if !request.accept || request.accept == "*/*"
-				render plain: :nothing, status: :ok
+				render plain: "#{params[:race][:name]}", status: :ok
 			end
 		end
 	end
