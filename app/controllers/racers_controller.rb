@@ -1,4 +1,6 @@
 class RacersController < ApplicationController
+	protect_from_forgery with: :null_session
+
   before_action :set_racer, only: [:show, :edit, :update, :destroy]
 
   # GET /racers

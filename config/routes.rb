@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get '/api/races' => 'api/races#index'
   get '/api/races/:id' => 'api/races#show'
   get '/api/races/:race_id/results' => 'api/races#results'
-  get '/api/races/:race_id/results/:id' => 'api/races#result'
+  get '/api/races/:race_id/results/:id' => 'api/races#result', as: 'api_race_result'
   get '/api/racers' => 'api/racers#index'
-  get '/api/racers/:id' => 'api/racers#show'
+  get '/api/racers/:id' => 'api/racers#show', as: 'api_racer'
   get '/api/racers/:racer_id/entries' => 'api/racers#entries'
   get '/api/racers/:racer_id/entries/:id' => 'api/racers#entry'
 
@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   put '/api/races/:id' => 'api/races#update'
   patch '/api/races/:id' => 'api/races#update'
   delete '/api/races/:id' => 'api/races#delete'
+  
+  patch '/api/races/:race_id/results/:id' => 'api/races#show_result'
 end

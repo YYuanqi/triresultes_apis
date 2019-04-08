@@ -75,6 +75,11 @@ class Entrant
   def overall_place
     overall.place if overall
   end
+  
+  def gender_name
+    gender.name if gender
+  end
+  
   def gender_place
     gender.place if gender
   end
